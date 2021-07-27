@@ -24,8 +24,8 @@ int main() {
 	// sort both of the vectors in non-increasing order
 	sort(odd.rbegin(), odd.rend());
 	sort(even.rbegin(), even.rend());
-	// find the minimum value between the odd and the even numbers (since this the number of
-	// elements that are matched with each other and will subtracted from sum)
+	// find the minimum value between the odd and the even numbers (since this is the number of
+	// elements that will be positioned alternately and will be subtracted from sum)
 	int k = min((int) odd.size(), (int) even.size());
 	int rem = sum;
 	// subtract the sum of the first 'k' odd elements from 'rem'
@@ -33,12 +33,12 @@ int main() {
 	// subtract the sum of the first 'k' even elements from 'rem'
 	rem -= accumulate(even.begin(), even.begin() + k, 0);
 	if (int(odd.size()) > k) {
-		// if the odd numbers are greater than 'k', then subract the element at the 'k'-th
+		// if the odd numbers are greater than 'k', then subtract the element at the 'k'-th
 		// position from the value of the sum (this will produce the minimum sum)
 		rem -= odd[k];
 	}
 	if (int(even.size()) > k) {
-		// if the even numbers are greater than 'k', then subract the element at the 'k'-th
+		// if the even numbers are greater than 'k', then subtract the element at the 'k'-th
 		// position from the value of the sum (this will produce the minimum sum)
 		rem -= even[k];
 	}
